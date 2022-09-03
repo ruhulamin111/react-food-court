@@ -11,7 +11,7 @@ const Product = () => {
 
 
     return (
-        <div className='my-5'>
+        <div id="food" className='my-5'>
             <h2 className='text-success text-center my-5'>Our Categorious Food</h2>
             <div className='row w-100 mx-auto'>
                 {

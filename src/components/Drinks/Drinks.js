@@ -10,7 +10,7 @@ const Drinks = () => {
     }, [drinks])
 
     return (
-        <div className='my-5'>
+        <div id='drinks' className='my-5'>
             <h2 className='text-success text-center my-5'>Our Categorious Soft Drinks</h2>
             <div className='row w-100 mx-auto'>
                 {
