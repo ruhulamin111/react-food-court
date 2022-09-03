@@ -2,10 +2,12 @@ import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
 import Banner from './components/Banner/Banner';
+import Cart from './components/Cart/Cart';
 import Drinks from './components/Drinks/Drinks';
 import Home from './components/Home/Home';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import Product from './components/Product/Product';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 import NotFound from './components/Shared/NotFound/NotFound';
@@ -21,6 +23,11 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/banner' element={<Banner></Banner>}></Route>
         <Route path='/productdetails/:id' element={<ItemDetails></ItemDetails>}></Route>
+        <Route path='/cart' element={
+          <RequireAuth>
+            <Cart></Cart>
+          </RequireAuth>
+        }></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>
         <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/product' element={<Product></Product>}></Route>

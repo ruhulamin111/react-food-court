@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ItemDetails = () => {
     const { id } = useParams();
@@ -12,14 +12,13 @@ const ItemDetails = () => {
     }, [id])
 
     const handleNavigate = () => {
-        navigate('/signin')
+        navigate('/cart')
     }
 
     return (
         <div>
             <img src={item.strMealThumb} alt="" />
             <p>{item.strMeal}</p>
-
             <button onClick={handleNavigate} className='btn btn-outline-dark '>
                 Proceed Now
             </button>

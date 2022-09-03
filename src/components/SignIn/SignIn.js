@@ -1,25 +1,25 @@
 import React, { useRef } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const SignIn = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
-    const [signInWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
     const location = useLocation();
     const navigate = useNavigate();
-    let from = location?.state?.from?.pathname || "/";
-
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
+    }
     const handleSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
-    if (user) {
-        navigate(from, { replace: true })
-    }
+
 
     return (
         <div className='w-50 mx-auto my-5'>

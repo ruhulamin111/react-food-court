@@ -1,23 +1,18 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
-
-
 const SignUp = () => {
-    const emailRef = useRef('')
-    const passwordRef = useRef('')
-    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
 
     const handleSubmit = event => {
         event.preventDefault();
-        const name = event.target.name.value;
+        // const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         createUserWithEmailAndPassword(email, password);
     }
-
 
     return (
         <div className='w-50 mx-auto my-5'>
