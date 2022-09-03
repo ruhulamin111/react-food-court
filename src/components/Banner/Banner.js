@@ -8,9 +8,9 @@ const Banner = () => {
     return (
         <>
             <Carousel className=''>
-                <Carousel.Item className='' interval={10000}>
+                <Carousel.Item className='' interval={2000}>
                     <img
-                        className="d-block w-100 h-[100vh]   "
+                        className="d-block w-100    "
                         src={banner1}
                         alt="First slide"
                     />
@@ -19,7 +19,7 @@ const Banner = () => {
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={500}>
+                <Carousel.Item interval={2000}>
                     <img
                         className="d-block w-100"
                         src={banner2}
@@ -30,7 +30,7 @@ const Banner = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item interval={2000} >
                     <img
                         className="d-block w-100"
                         src={banner3}
