@@ -8,7 +8,7 @@ const ProductDetails = ({ meal }) => {
             <img className='img-fluid' src={strCategoryThumb} alt="" />
             <h5>{strCategory}</h5>
             <p>{strCategoryDescription.slice(0, 100)}</p>
-            <button className='btn btn-dark float-end'>Order Now</button>
+            <button className='btn btn btn-outline-dark float-end'>Order Now</button>
         </div>
     );
 };
