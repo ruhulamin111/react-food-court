@@ -7,10 +7,10 @@ import banner3 from '../../assests/image/banner3.jpg';
 const Banner = () => {
     return (
         <>
-            <Carousel id='banner' className=''>
+            <Carousel id='banner' className='mh-100'>
                 <Carousel.Item className='' interval={2000}>
                     <img
-                        className="d-block w-100    "
+                        className="d-block w-100 "
                         src={banner1}
                         alt="First slide"
                     />
