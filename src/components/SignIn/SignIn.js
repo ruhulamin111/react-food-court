@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignIn = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
-    const navigate = useNavigate()
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -12,9 +11,7 @@ const SignIn = () => {
         const password = passwordRef.current.value;
         console.log(email, password);
     }
-    const handleNavigate = () => {
-        navigate('/signup')
-    }
+
 
     return (
         <div className='w-50 mx-auto my-5'>
@@ -34,7 +31,7 @@ const SignIn = () => {
                 </div>
                 <button type="submit" className="btn btn-primary">Sign In</button>
             </form>
-            <p className='my-2 '>New to car genius? <span className=' text-success ' onClick={handleNavigate}>Sign up</span></p>
+            <p className='my-2 '>Have an account? <Link to='/signup' className=' text-decoration-none'>Sign up</Link></p>
         </div>
     );
 };
