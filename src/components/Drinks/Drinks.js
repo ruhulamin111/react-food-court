@@ -14,7 +14,7 @@ const Drinks = () => {
             <h2 className='text-success text-center my-5'>Our Categorious Soft Drinks</h2>
             <div className='row w-100 mx-auto'>
                 {
-                    drinks.slice(0, 20).map((drink, index) => <Drink
+                    drinks.slice(0, 10).map((drink, index) => <Drink
                         key={index}
                         drink={drink}
                     ></Drink>)

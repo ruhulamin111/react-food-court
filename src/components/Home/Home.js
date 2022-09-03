@@ -4,13 +4,13 @@ import Drinks from '../Drinks/Drinks';
 import Product from '../Product/Product';
 
 const Home = () => {
+
     return (
-        <div>
+        <>
             <Banner></Banner>
             <Product></Product>
             <Drinks></Drinks>
-
-        </div>
+        </>
     );
 };
 

@@ -11,8 +11,8 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="/product#food">Food</Nav.Link>
-                        <Nav.Link as={Link} to="/drinks#drinks">Drinks</Nav.Link>
+                        <Nav.Link as={Link} to="home#drinks">Food</Nav.Link>
+                        <Nav.Link as={Link} to="/drinks/#drinks">Drinks</Nav.Link>
                         <NavDropdown title="Category" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Men</NavDropdown.Item>
                             <NavDropdown.Item href="#action/3.2">Women </NavDropdown.Item>
