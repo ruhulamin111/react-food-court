@@ -9,6 +9,8 @@ import Product from './components/Product/Product';
 import Footer from './components/Shared/Footer/Footer';
 import Header from './components/Shared/Header/Header';
 import NotFound from './components/Shared/NotFound/NotFound';
+import SignIn from './components/SignIn/SignIn';
+import SignUp from './components/SignUp/SignUp';
 
 function App() {
   return (
@@ -19,12 +21,15 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/banner' element={<Banner></Banner>}></Route>
         <Route path='/productdetails/:id' element={<ItemDetails></ItemDetails>}></Route>
+        <Route path='/signin' element={<SignIn></SignIn>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
+        <Route path='/product' element={<Product></Product>}></Route>
         <Route path='/drinks' element={<Drinks></Drinks>}></Route>
         <Route path='/about' element={<About></About>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
-    </div>
+    </div >
   );
 }
 

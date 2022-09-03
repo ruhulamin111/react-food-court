@@ -11,7 +11,7 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="ms-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link} to="home#drinks">Food</Nav.Link>
+                        <Nav.Link as={Link} to="/product#food">Food</Nav.Link>
                         <Nav.Link as={Link} to="/drinks/#drinks">Drinks</Nav.Link>
                         <NavDropdown title="Category" id="collasible-nav-dropdown">
                             <NavDropdown.Item href="#action/3.1">Men</NavDropdown.Item>
@@ -19,7 +19,7 @@ const Header = () => {
                             <NavDropdown.Item href="#action/3.3">Children</NavDropdown.Item>
                         </NavDropdown>
                         <Nav.Link as={Link} to="/about">About</Nav.Link>
-                        <Nav.Link as={Link} to="/login">Log In</Nav.Link>
+                        <Nav.Link as={Link} to="/signin">Log In</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
