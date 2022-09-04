@@ -1,13 +1,18 @@
 import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
     const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
+        auth
+    );
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
@@ -20,7 +25,14 @@ const SignIn = () => {
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password)
     }
+    const handleResetPassword = async () => {
+        const email = emailRef.current.value;
+        if (email) {
 
+            await sendPasswordResetEmail(email)
+            toast('Sent email for verification')
+        }
+    }
 
     return (
         <div className='w-50 mx-auto my-5'>
@@ -38,11 +50,10 @@ const SignIn = () => {
             </form>
             <div className='d-flex justify-content-between'>
                 <p className='my-2 '>Have an account? <Link to='/signup' className=' text-decoration-none'>Sign up</Link></p>
-                <p className='my-2 '><Link to='' className=' text-decoration-none'>Forgotten Password</Link></p>
-
+                <p className='my-2 '><Link to='' onClick={handleResetPassword} className=' text-decoration-none'>Forgotten Password</Link></p>
             </div>
-
             <SocialLogIn></SocialLogIn>
+            <ToastContainer></ToastContainer>
         </div>
     );
 };

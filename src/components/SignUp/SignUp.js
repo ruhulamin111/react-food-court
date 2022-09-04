@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const SignUp = () => {
-    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    const [updateProfile, updating, error] = useUpdateProfile(auth);
+
     const location = useLocation();
     const navigate = useNavigate();
     const [agree, setAgree] = useState(false)
@@ -14,24 +16,16 @@ const SignUp = () => {
     if (user) {
         navigate(from, { replace: true });
     }
-    const [sendEmailVerification, sending, error] = useSendEmailVerification(
-        auth
-    );
-    const verifyEmail = async () => {
-        await sendEmailVerification()
-        alert('Sent email')
-    }
-    const handleSubmit = event => {
+
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        // const name = event.target.name.value;
+        const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        verifyEmail()
-        if (agree) {
-            createUserWithEmailAndPassword(email, password);
-        }
-    }
-
+        await createUserWithEmailAndPassword(email, password)
+        await updateProfile({ displayName: name })
+    };
 
 
     return (
@@ -59,7 +53,6 @@ const SignUp = () => {
             <div className='d-flex justify-content-between'>
                 <p className='my-2 '>Have an account? <Link to='/signin' className=' text-decoration-none' >Sign in</Link></p>
                 <p className='my-2 '><Link to='' className=' text-decoration-none'>Forgotten Password</Link></p>
-
             </div>
             <SocialLogIn></SocialLogIn>
         </div>
