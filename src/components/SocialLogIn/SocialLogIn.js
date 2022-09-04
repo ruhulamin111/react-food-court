@@ -7,19 +7,21 @@ import facebook from '../../assests/logo/facebook.png'
 
 
 const SocialLogIn = () => {
+    let errorText;
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
     const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
-
+    if (error || error2 || error3) {
+        errorText = <p>{error?.message}{error2?.message}{error3?.message}</p>
+    }
 
     return (
         <div className='w-100'>
-            <div>
-                <div>
-                </div>
+            {errorText}
+            <div className='d-flex align-items-center gap-2'>
+                <div className='w-50 bg-dark' style={{ height: '1px' }}></div>
                 <span>or</span>
-                <div>
-                </div>
+                <div className='w-50 bg-dark' style={{ height: '1px' }}></div>
             </div>
             <div >
                 <button className='my-3 w-50 btn btn-outline-success d-block mx-auto' onClick={() => signInWithGoogle()}>
@@ -34,7 +36,7 @@ const SocialLogIn = () => {
 
             </div>
 
-        </div>
+        </div >
     );
 };
 
