@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const SignUp = () => {
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth);
@@ -39,9 +40,10 @@ const SignUp = () => {
                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                     <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
                 </div>
-                <button type="submit" className="btn btn-primary">Sign Up</button>
+                <button type="submit" className='w-50 btn btn-outline-primary d-block mx-auto' >Sign Up</button>
             </form>
             <p className='my-2 '>Have an account? <Link to='/signin' className=' text-decoration-none' >Sign in</Link></p>
+            <SocialLogIn></SocialLogIn>
         </div>
     );
 };
