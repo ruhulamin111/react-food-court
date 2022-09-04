@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogIn from '../SocialLogIn/SocialLogIn';
 
 const SignIn = () => {
     const emailRef = useRef('')
@@ -33,13 +34,15 @@ const SignIn = () => {
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
                     <input ref={passwordRef} type="password" className="form-control" id="exampleInputPassword1" />
                 </div>
-                <div className="mb-3 form-check">
-                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                    <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
-                </div>
                 <button type="submit" className='w-50 btn btn-outline-primary d-block mx-auto' >Sign In</button>
             </form>
-            <p className='my-2 '>Have an account? <Link to='/signup' className=' text-decoration-none'>Sign up</Link></p>
+            <div className='d-flex justify-content-between'>
+                <p className='my-2 '>Have an account? <Link to='/signup' className=' text-decoration-none'>Sign up</Link></p>
+                <p className='my-2 '><Link to='' className=' text-decoration-none'>Forgotten Password</Link></p>
+
+            </div>
+
+            <SocialLogIn></SocialLogIn>
         </div>
     );
 };

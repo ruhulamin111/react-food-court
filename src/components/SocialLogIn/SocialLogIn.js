@@ -12,7 +12,6 @@ const SocialLogIn = () => {
     const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
 
 
-
     return (
         <div className='w-100'>
             <div>
@@ -24,13 +23,14 @@ const SocialLogIn = () => {
             </div>
             <div >
                 <button className='my-3 w-50 btn btn-outline-success d-block mx-auto' onClick={() => signInWithGoogle()}>
-                    <img className='mx-3' height={16} src={google} alt="" />                  Google Sign In</button>
-                <button className='my-3 w-50 btn btn-outline-success d-block mx-auto' onClick={() => signInWithGithub()}>
-                    <img className='mx-3' height={16} src={github} alt="" />
-                    Github Sign In</button>
+                    <img className='mx-3' height={16} src={google} alt="" />        Continue with Google</button>
                 <button className='my-3 w-50 btn btn-outline-success d-block mx-auto' onClick={() => signInWithFacebook()}>
                     <img className='mx-3' height={16} src={facebook} alt="" />
-                    Facebook Sign In</button>
+                    Continue with Facebook</button>
+                <button className='my-3 w-50 btn btn-outline-success d-block mx-auto' onClick={() => signInWithGithub()}>
+                    <img className='mx-3' height={16} src={github} alt="" />
+                    Continue with Github</button>
+
 
             </div>
 
