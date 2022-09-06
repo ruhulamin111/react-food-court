@@ -6,9 +6,9 @@ const ItemDetails = () => {
     const [item, setItem] = useState([])
     const navigate = useNavigate()
     useEffect(() => {
-        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+        fetch(`http://localhost:5000/food/${id}`)
             .then(res => res.json())
-            .then(data => setItem(data.meals[0]))
+            .then(data => setItem(data))
     }, [id])
 
     const handleNavigate = () => {

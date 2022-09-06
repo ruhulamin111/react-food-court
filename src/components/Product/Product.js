@@ -4,9 +4,9 @@ import ProductDetails from '../ProductDetails/ProductDetails';
 const Product = () => {
     const [meals, setMeals] = useState([])
     useEffect(() => {
-        fetch('https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood')
+        fetch('http://localhost:5000/foods')
             .then(res => res.json())
-            .then(data => setMeals(data.meals))
+            .then(data => setMeals(data))
     }, [meals])
 
 
