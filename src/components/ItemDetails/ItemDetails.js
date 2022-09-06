@@ -9,7 +9,7 @@ const ItemDetails = () => {
         fetch(`http://localhost:5000/food/${id}`)
             .then(res => res.json())
             .then(data => setItem(data))
-    }, [id])
+    }, [id, item])
 
     const handleNavigate = () => {
         navigate('/cart')
