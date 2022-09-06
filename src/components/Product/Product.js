@@ -15,7 +15,7 @@ const Product = () => {
             <h2 className='text-success text-center my-5'>Our Categorious Food</h2>
             <div className='row w-100 mx-auto'>
                 {
-                    meals.slice(0, 10).map((meal, index) => <ProductDetails
+                    meals.map((meal, index) => <ProductDetails
                         key={index}
                         meal={meal}
                     ></ProductDetails>)

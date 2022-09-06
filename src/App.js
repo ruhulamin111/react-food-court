@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
+import AddProduct from './components/AddProduct/AddProduct';
 import Banner from './components/Banner/Banner';
 import Cart from './components/Cart/Cart';
 import Drinks from './components/Drinks/Drinks';
@@ -26,6 +27,11 @@ function App() {
         <Route path='/cart' element={
           <RequireAuth>
             <Cart></Cart>
+          </RequireAuth>
+        }></Route>
+        <Route path='/addproduct' element={
+          <RequireAuth>
+            <AddProduct></AddProduct>
           </RequireAuth>
         }></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>

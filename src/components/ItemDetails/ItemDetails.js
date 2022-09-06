@@ -17,8 +17,8 @@ const ItemDetails = () => {
 
     return (
         <div>
-            <img src={item.strMealThumb} alt="" />
-            <p>{item.strMeal}</p>
+            <img src={item.img} alt="" />
+            <p>{item.name}</p>
             <button onClick={handleNavigate} className='btn btn-outline-dark '>
                 Proceed Now
             </button>
