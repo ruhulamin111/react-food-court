@@ -22,8 +22,8 @@ const Header = () => {
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                         {user && <NavDropdown title="Add Product" id="collasible-nav-dropdown">
                             <NavDropdown.Item as={Link} to="/addproduct">Add</NavDropdown.Item>
-                            <NavDropdown.Item as={Link} to="/manageproduct">Manage </NavDropdown.Item>
-                            <NavDropdown.Item href="#action/3.3">Children</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/manageproduct">Manage</NavDropdown.Item>
+                            <NavDropdown.Item as={Link} to="/orders">Orders</NavDropdown.Item>
                         </NavDropdown>}
                         <Nav.Link as={Link} to="/product#food">Food</Nav.Link>
                         <Nav.Link as={Link} to="/drinks/#drinks">Drinks</Nav.Link>

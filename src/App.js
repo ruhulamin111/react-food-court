@@ -9,6 +9,7 @@ import Drinks from './components/Drinks/Drinks';
 import Home from './components/Home/Home';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import ManageProduct from './components/ManageProduct/ManageProduct';
+import Orders from './components/Orders/Orders';
 import Product from './components/Product/Product';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import Footer from './components/Shared/Footer/Footer';
@@ -39,6 +40,11 @@ function App() {
         <Route path='/manageproduct' element={
           <RequireAuth>
             <ManageProduct></ManageProduct>
+          </RequireAuth>
+        }></Route>
+        <Route path='/orders' element={
+          <RequireAuth>
+            <Orders></Orders>
           </RequireAuth>
         }></Route>
         <Route path='/signin' element={<SignIn></SignIn>}></Route>
