@@ -2,6 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import useSingleProduct from '../../hooks/useSingleProduct';
 
@@ -19,14 +20,18 @@ const Cart = () => {
         }
 
         axios.post('http://localhost:5000/order', order)
-            .then(data => {
-                console.log(data);
+            .then(response => {
+                const { data } = response;
+                if (data.insertedId) {
+                    toast('Your order is confirmed')
+                    event.target.reset()
+                }
             })
     }
 
     return (
         <div>
-            <h2>Your selected product is here</h2>
+            <h2>Your selected product is {item.name}</h2>
             <div className='w-25 mx-auto'>
                 <form onSubmit={(handleSubmit)}>
                     <input className='w-100 my-2 py-2' type="text" name="name" id="name" placeholder='name' />

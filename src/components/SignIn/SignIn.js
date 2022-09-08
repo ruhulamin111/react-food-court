@@ -3,7 +3,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const SignIn = () => {
@@ -53,7 +53,7 @@ const SignIn = () => {
                 <p className='my-2 '><Link to='' onClick={handleResetPassword} className=' text-decoration-none'>Forgotten Password</Link></p>
             </div>
             <SocialLogIn></SocialLogIn>
-            <ToastContainer></ToastContainer>
+
         </div>
     );
 };
