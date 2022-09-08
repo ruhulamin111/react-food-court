@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import google from '../../assests/logo/google.png'
 import github from '../../assests/logo/github.png'
 import facebook from '../../assests/logo/facebook.png'
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const SocialLogIn = () => {
@@ -11,6 +12,12 @@ const SocialLogIn = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
     const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
+    if (user) {
+        navigate(from, { replace: true });
+    }
     if (error || error2 || error3) {
         errorText = <p>{error?.message}{error2?.message}{error3?.message}</p>
     }
