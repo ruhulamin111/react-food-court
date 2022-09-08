@@ -17,6 +17,7 @@ import Header from './components/Shared/Header/Header';
 import NotFound from './components/Shared/NotFound/NotFound';
 import SignIn from './components/SignIn/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import SocialLogIn from './components/SocialLogIn/SocialLogIn';
 
 function App() {
   return (
@@ -52,6 +53,7 @@ function App() {
         <Route path='/product' element={<Product></Product>}></Route>
         <Route path='/drinks' element={<Drinks></Drinks>}></Route>
         <Route path='/about' element={<About></About>}></Route>
+        <Route path='/sociallogin' element={<SocialLogIn></SocialLogIn>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

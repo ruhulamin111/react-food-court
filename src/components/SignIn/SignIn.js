@@ -10,7 +10,7 @@ import axios from 'axios';
 const SignIn = () => {
     const emailRef = useRef('')
     const passwordRef = useRef('')
-    const [signInWithEmailAndPassword, user] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword, user, loading, error1] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(
         auth
     );
@@ -26,9 +26,8 @@ const SignIn = () => {
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password)
         const { data } = await axios.post('http://localhost:5000/signin', { email })
-        console.log(data);
         localStorage.setItem('accessToken', data.accessToken)
-        // navigate(from, { replace: true });
+        navigate(from, { replace: true });
     }
 
     const handleResetPassword = async () => {
