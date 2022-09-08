@@ -1,4 +1,4 @@
-import { async } from '@firebase/util';
+
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';

@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const SignIn = () => {
     const emailRef = useRef('')
@@ -16,19 +17,23 @@ const SignIn = () => {
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
-    if (user) {
-        navigate(from, { replace: true });
-    }
-    const handleSubmit = event => {
+    // if (user) {
+    //     navigate(from, { replace: true });
+    // }
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        await signInWithEmailAndPassword(email, password)
+        const { data } = await axios.post('http://localhost:5000/signin', { email })
+        console.log(data);
+        localStorage.setItem('accessToken', data.accessToken)
+        // navigate(from, { replace: true });
     }
+
     const handleResetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {
-
             await sendPasswordResetEmail(email)
             toast('Sent email for verification')
         }
@@ -40,11 +45,11 @@ const SignIn = () => {
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input ref={emailRef} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                    <input ref={emailRef} type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                    <input ref={passwordRef} type="password" className="form-control" id="exampleInputPassword1" />
+                    <input ref={passwordRef} type="password" className="form-control" id="exampleInputPassword1" required />
                 </div>
                 <button type="submit" className='w-50 btn btn-outline-primary d-block mx-auto' >Sign In</button>
             </form>

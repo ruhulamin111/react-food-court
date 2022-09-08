@@ -40,9 +40,9 @@ const Cart = () => {
             <h2>Your selected product is {item.name}</h2>
             <div className='w-25 mx-auto'>
                 <form onSubmit={(handleSubmit)}>
-                    <input className='w-100 my-2 py-2' type="text" name="name" id="name" placeholder='name' value={user.displayName} />
+                    <input className='w-100 my-2 py-2' type="text" name="name" id="name" placeholder='name' value={user.displayName} readOnly />
                     <br />
-                    <input className='w-100 my-2 py-2' type="email" name="email" id="email" placeholder='email' value={user.email} />
+                    <input className='w-100 my-2 py-2' type="email" name="email" id="email" placeholder='email' value={user.email} readOnly />
                     <br />
                     <input className='w-100 my-2 py-2' type="text" name="address" id="address" placeholder='address' required />
                     <br />
