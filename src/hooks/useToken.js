@@ -6,8 +6,11 @@ const useToken = (user) => {
     useEffect(() => {
         const getToken = async () => {
             const email = user?.user?.email;
-            const { data } = await axios.post('http://localhost:5000/signin', { email })
-            localStorage.setItem('accessToken', data.accessToken)
+            if (email) {
+                const { data } = await axios.post('http://localhost:5000/signin', { email })
+                setToken(data.accessToken)
+                localStorage.setItem('accessToken', data.accessToken)
+            }
         }
         getToken()
     }, [user])
