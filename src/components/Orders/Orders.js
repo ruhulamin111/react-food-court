@@ -2,7 +2,7 @@ import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Orders = () => {
@@ -13,7 +13,7 @@ const Orders = () => {
     useEffect(() => {
         const orderList = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/order?email=${email}`, {
+                const { data } = await axios.get(`https://glacial-brook-87330.herokuapp.com/order?email=${email}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('accessToken')}`
                     }

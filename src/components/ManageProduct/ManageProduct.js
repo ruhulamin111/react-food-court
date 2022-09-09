@@ -9,7 +9,7 @@ const ManageProduct = () => {
     const handleManage = id => {
         const proceed = window.confirm('are you sure to delete this item ?')
         if (proceed) {
-            fetch(`http://localhost:5000/food/${id}`, {
+            fetch(`https://glacial-brook-87330.herokuapp.com/food/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

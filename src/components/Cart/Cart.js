@@ -23,7 +23,7 @@ const Cart = () => {
             phone: event.target.phone.value,
         }
 
-        axios.post('http://localhost:5000/order', order)
+        axios.post('https://glacial-brook-87330.herokuapp.com/order', order)
             .then(response => {
                 const { data } = response;
                 if (data.insertedId) {
