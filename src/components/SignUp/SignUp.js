@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import SocialLogIn from '../SocialLogIn/SocialLogIn';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -11,9 +12,10 @@ const SignUp = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [agree, setAgree] = useState(false)
+    const [token] = useToken(user)
 
     let from = location.state?.from?.pathname || "/";
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
 

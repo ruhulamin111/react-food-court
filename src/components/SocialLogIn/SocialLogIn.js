@@ -5,6 +5,7 @@ import google from '../../assests/logo/google.png'
 import github from '../../assests/logo/github.png'
 import facebook from '../../assests/logo/facebook.png'
 import { useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../hooks/useToken';
 
 
 const SocialLogIn = () => {
@@ -12,10 +13,11 @@ const SocialLogIn = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     const [signInWithGithub, user2, loading2, error2] = useSignInWithGithub(auth);
     const [signInWithFacebook, user3, loading3, error3] = useSignInWithFacebook(auth);
+    const [token] = useToken(user)
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
     if (error || error2 || error3) {
